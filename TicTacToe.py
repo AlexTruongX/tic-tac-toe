@@ -1,6 +1,5 @@
 import random, time
 
-
 def introduction():
     print('''
   _____ ___ ____           _____  _    ____           _____ ___  _____ 
@@ -38,7 +37,7 @@ def inputPlayerLetter():
         print("Do you want to be X or O?")
         letter = input().upper()
 
-        # First element is the player's letter. The second is the computer's letter. 
+        # First element in tuple is the Player 1's letter. The second is Player 2's letter. 
         if letter == "X":
             print("You have selected X!")
             return ["X", "O"]
@@ -47,12 +46,12 @@ def inputPlayerLetter():
             return ["O", "X"]
 
 def whoGoesFirst():
-    # Randomly decides which player goes first.
+    # Randomly chooses which player goes first.
     firstMove = random.choice(["Player 1", "Player 2"])
     return firstMove
 
 def moveList(board):
-    # Returns a list of potential moves left on the board 
+    # Returns a list containing the potential moves left on the board 
     moveList = []
     for i in board:
         if board[i] == ' ':
@@ -117,16 +116,19 @@ def playAgain():
             break
 
 def game():
+    introduction()
+
+    # Resets the board
     gameBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
          'mid-L': ' ',  'mid-M': ' ', 'mid-R': ' ',
          'bot-L': ' ',  'bot-M': ' ', 'bot-R': ' '}
+
     printBoard(gameBoard) # Displays graphical image of tic-tac-toe board
     playerLetter, player2Letter = inputPlayerLetter() # Stores the player's selected symbol and the computer's letter
     turn = whoGoesFirst() 
     print(turn + " will make the first move.")
     gameIsPlaying = True
 
-    
     while gameIsPlaying:
         if turn == "Player 1":
             # Player's turn
@@ -138,7 +140,6 @@ def game():
             if checkWin(gameBoard, playerLetter):
                 printBoard(gameBoard)
                 print("Player 1 has won the game!")
-                playAgain()
                 gameIsPlaying = False
             elif checkTie(gameBoard):
                 printBoard(gameBoard)
@@ -157,7 +158,6 @@ def game():
             if checkWin(gameBoard, player2Letter):
                 printBoard(gameBoard)
                 print("Player 2 has won the game!")
-                playAgain()
                 gameIsPlaying = False
             elif checkTie(gameBoard):
                 printBoard(gameBoard)
@@ -165,6 +165,6 @@ def game():
                 break
             else:
                 turn = "Player 1"
+    playAgain()
 
-introduction()
 game()
