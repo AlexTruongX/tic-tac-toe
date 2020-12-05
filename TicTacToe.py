@@ -1,4 +1,7 @@
 import random, time
+    # 
+    #  Future implementations: minimax algorithim, option to choose to play 
+    #  against a bot or player, and visual component (could use p5 library).
 
 def introduction():
     print('''
@@ -10,7 +13,7 @@ def introduction():
                                                                                                                                                                                                        
 ''')
     time.sleep(1)
-    print(''' 
+    print('''
   ______   __     _    _     _______  __  _____ ____  _   _  ___  _   _  ____ 
  | __ ) \ / /    / \  | |   | ____\ \/ / |_   _|  _ \| | | |/ _ \| \ | |/ ___|
  |  _\ \ V /    / _ \ | |   |  _|  \  /    | | | |_) | | | | | | |  \| | |  _ 
@@ -39,10 +42,10 @@ def inputPlayerLetter():
 
         # First element in tuple is the Player 1's letter. The second is Player 2's letter. 
         if letter == "X":
-            print("You have selected X!")
+            print("Player 1 has selected X!")
             return ["X", "O"]
         elif letter == "O":
-            print("You have selected O!")
+            print("Player 1 has selected O!")
             return ["O", "X"]
 
 def whoGoesFirst():
@@ -66,7 +69,7 @@ def getPlayerMove(board, move_list, turn):
     # Lets the player type in their move.
     move = ''
     while move not in move_list:
-        print("what is your next move " + turn + " ? (top-, mid-, bot-, & L, M, R) | EXAMPLE: top-L")
+        print("what is your next move " + turn + "? (top-, mid-, bot-, & L, M, R) | EXAMPLE: top-L")
         move = input()
     return move
 
