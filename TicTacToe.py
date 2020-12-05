@@ -1,8 +1,10 @@
 import random, time
-    # 
-    #  Future implementations: minimax algorithim, option to choose to play 
-    #  against a bot or player, and visual component (could use p5 library).
 
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #  Future implementations: minimax algorithim, option to choose to play #
+    #  against a bot or player, and visual component (could use p5 library) #
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    
 def introduction():
     print('''
   _____ ___ ____           _____  _    ____           _____ ___  _____ 
